@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    // Dans le modèle User
+    public function hasAnyRole($roles)
+    {
+        return in_array($this->role, $roles);
+    }
+
 }

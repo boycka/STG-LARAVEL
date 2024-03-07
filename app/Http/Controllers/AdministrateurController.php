@@ -16,15 +16,15 @@ class AdministrateurController extends Controller
     public function index()
     {
         // $Admine = Administrateur::paginate(100);
-        return view('Admin.index', compact('Admine'));
+        return view('Admin.index');
     }
 
-    public function import()
-    {
-        Excel::import(new Usersimport, request()->file('file'));
+    // public function import()
+    // {
+    //     Excel::import(new Usersimport, request()->file('file'));
 
-        return redirect('/');
-    }
+    //     return redirect('/');
+    // }
 
 
 

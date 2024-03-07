@@ -40,7 +40,7 @@
             @endif
 
             <x-primary-button class="ms-3">
-               <a href="{{ url('/Admin') }}"> {{ __('Log in') }}  </a>
+                {{ __('Log in') }}
             </x-primary-button>
         </div>
     </form>

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('administration', function (Blueprint $table) {
+        Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->string('Mat_admin')->unique();
-            $table->string('Nom');
-            $table->string('Prenom');
-            $table->string('Email');
-            $table->string('Password');
+            $table->string('Code_mod')->unique();
+
+            $table->integer('Libelle');
+            $table->foreignId('semestre_id')->constrained('semestres')->CascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('administration');
+        Schema::dropIfExists('modules');
     }
 };

@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('professeurs', function (Blueprint $table) {
-            $table->integer('Mat_prof');
+            $table->id();
+            $table->integer('Mat_prof')->unique();
             $table->string('Nom');
             $table->string('Prenom');
             $table->string('Email')->unique();
@@ -20,7 +21,6 @@ return new class extends Migration
             $table->string('Filiere');
             $table->string('Telephone');
             $table->string('Password');
-            $table->primary('Mat_prof');
             $table->timestamps();
         });
     }

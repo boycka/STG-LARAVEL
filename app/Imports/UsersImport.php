@@ -8,35 +8,35 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 
-class UsersImport implements ToCollection, WithHeadingRow
+// class UsersImport implements ToCollection, WithHeadingRow
 {
     /**
     * @param Collection $collection
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-    
-    public function collection(Collection $rows)
-    {
-        foreach ($rows as $row)
-        {
-            $customer = Customer::where('email', $row['email'])->first();
-            if($customer){
 
-                $customer->update([
-                    'name' => $row['name'],
-                    'phone' => $row['phone'],
-                ]);
+    // public function collection(Collection $rows)
+    // {
+    //     foreach ($rows as $row)
+    //     {
+    //         // $customer = Customer::where('email', $row['email'])->first();
+    //         if($customer){
 
-            }else{
+    //             $customer->update([
+    //                 'name' => $row['name'],
+    //                 'phone' => $row['phone'],
+    //             ]);
 
-                Customer::create([
-                    'name' => $row['name'],
-                    'email' => $row['email'],
-                    'phone' => $row['phone'],
-                ]);
-            }
+    //         }else{
 
-        }
-    }
+    //             Customer::create([
+    //                 'name' => $row['name'],
+    //                 'email' => $row['email'],
+    //                 'phone' => $row['phone'],
+    //             ]);
+    //         }
+
+    //     }
+    // }
 }

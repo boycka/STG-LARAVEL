@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('matieres', function (Blueprint $table) {
-            $table->string('Code_matiere');
-            $table->foreignID('Code_mod')->constrained('modules')->cascadeOnDelete();
-            $table->string('Code_mod');
+        Schema::create('semestres', function (Blueprint $table) {
+            $table->id();
+            $table->string('Code_semestre')->unique();
             $table->string('Libelle');
             $table->timestamps();
-            $table->primary('Code_matiere');
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('matieres');
+        Schema::dropIfExists('semestres');
     }
 };

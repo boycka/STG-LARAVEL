@@ -23,83 +23,108 @@ Route::get('/Welcome', function () {
     return view('welcome');
 });
 
+
+
+Route::resource('/Admin', AdministrateurController::class)->middleware(['auth','checkRole:admin']);
+
+Route::resource('/Etudiant', EtudiantController::class)->middleware(['auth','checkRole:etudiant']);
+
+Route::resource('/Professeur', ProfesseurController::class)->middleware(['auth','checkRole:professeur']);
+
+
+
+
+
+
+
+
+
+
+
 // Route::get('/login',function () {
 //     return view('login');
 // });
 
 
 
-Route::get('Admin/text',function () {
-    return view('Admin.show');
-});
+// Route::get('Admin/text',function () {
+//     return view('Admin.show');
+// });
 
 
 
-// Admin:Index;Etudiant;Profe
-Route::get('/Admin',function () {
-    return view('Admin.index');
-});
+// // Admin:Index;Etudiant;Profe
+// Route::get('/Admin',function () {
+//     return view('Admin.index');
+// });
 
-Route::get('Admin/Etudiant',function () {
-    return view('Admin.Etudiant');
-});
+// Route::get('Admin/Etudiant',function () {
+//     return view('Admin.Etudiant');
+// });
 
-Route::get('Admin/Professeur',function () {
-    return view('Admin.Professeur');
-});
-
-
-// Etudiant
-Route::get('Etudiant/Rclamer',function () {
-    return view('Etudiant.index');
-});
-Route::get('Etudiant/Form',function () {
-    return view('Etudiant.create');
-});
-
-Route::get('Etudiant/text',function () {
-    return view('Etudiant.show');
-});
-
-Route::get('Etudaint/modif',function () {
-    return view('Etudiant.edit');
-});
-
-Route::get('Etud/Acc',function () {
-    return view('Etudiant.Accepte');
-});
-
-Route::get('Etud/Reje',function () {
-    return view('Etudiant.Rejeter');
-});
+// Route::get('Admin/Professeur',function () {
+//     return view('Admin.Professeur');
+// });
 
 
+// // Etudiant
+// Route::get('Etudiant/Rclamer',function () {
+//     return view('Etudiant.index');
+// });
+// Route::get('Etudiant/Form',function () {
+//     return view('Etudiant.create');
+// });
+
+// Route::get('Etudiant/text',function () {
+//     return view('Etudiant.show');
+// });
+
+// Route::get('Etudaint/modif',function () {
+//     return view('Etudiant.edit');
+// });
+
+// Route::get('Etud/Acc',function () {
+//     return view('Etudiant.Accepte');
+// });
+
+// Route::get('Etud/Reje',function () {
+//     return view('Etudiant.Rejeter');
+// });
 
 
-// Professeur
 
-Route::get('Prof/Rclamer',function () {
-    return view('Professeur.index');
-});
-Route::get('Prof/Form',function () {
-    return view('Professeur.create');
-});
 
-Route::get('Prof/text',function () {
-    return view('Professeur.show');
-});
+// // Professeur
 
-Route::get('Prof/modif',function () {
-    return view('Professeur.edit');
-});
+// Route::get('Prof/Rclamer',function () {
+//     return view('Professeur.index');
+// });
+// Route::get('Prof/Form',function () {
+//     return view('Professeur.create');
+// });
 
-Route::get('Prof/Acc',function () {
-    return view('Professeur.Accepte');
-});
+// Route::get('Prof/text',function () {
+//     return view('Professeur.show');
+// });
 
-Route::get('Prof/Reje',function () {
-    return view('Professeur.Rejeter');
-});
+// Route::get('Prof/modif',function () {
+//     return view('Professeur.edit');
+// });
+
+// Route::get('Prof/Acc',function () {
+//     return view('Professeur.Accepte');
+// });
+
+// Route::get('Prof/Reje',function () {
+//     return view('Professeur.Rejeter');
+// });
+
+
+
+
+
+
+
 
 
 // Route::get('/logProf',function () {
@@ -112,15 +137,15 @@ Route::get('Prof/Reje',function () {
 
 
 // -----------------------------------------------------------------------------------------------
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';
 

@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('administration', function (Blueprint $table) {
+        Schema::create('matieres', function (Blueprint $table) {
             $table->id();
-            $table->string('Mat_admin')->unique();
-            $table->string('Nom');
-            $table->string('Prenom');
-            $table->string('Email');
-            $table->string('Password');
+            $table->string('Code_matiere')->unique();
+            $table->string('Code_mod');
+            $table->string('Libelle');
+
+            $table->foreignId('module_id')->constrained('modules')->cascadeOnDelete();
             $table->timestamps();
+
+
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('administration');
+        Schema::dropIfExists('matieres');
     }
 };

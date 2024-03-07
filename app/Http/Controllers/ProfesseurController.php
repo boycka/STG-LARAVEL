@@ -7,59 +7,47 @@ use Illuminate\Http\Request;
 
 class ProfesseurController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('Professeur.index');
+    public function index(){
+        $Professeur = Professeur::all();
+        return view('Professeur.index',['Professeur'=>$Professeur]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('Professeur.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(request $request){
+        $request->validate([
+            'nom'=>'required',
+            'prenom'=>'required',
+            'email'=>'required',
+        ]);
+        Professeur::create($request->post());
+        return redirect()->route('Professeur.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Professeur $professeur)
-    {
-        //
+    public function edit(Professeur $Professeur){
+        return view('Professeur.edit',['Professeur'=>$Professeur]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Professeur $professeur)
-    {
-        //
+    public function update(Professeur $Professeur,request $request){
+        $data = $request->validate([
+            'nom'=>'required',
+            'prenom'=>'required',
+            'email'=>'required',
+        ]);
+
+        $Professeur->update($data);
+        return redirect()->route('Professeur.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Professeur $professeur)
-    {
-        //
+    public function destroy(Professeur $Professeur){
+        $Professeur->delete($Professeur);
+
+        return redirect()->route('Professeur.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Professeur $professeur)
-    {
-        //
+    public function show(Professeur $Professeur){
+        return view('Professeur.show',['Professeur'=>$Professeur]);
     }
 }

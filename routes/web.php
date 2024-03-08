@@ -6,6 +6,7 @@ use App\Http\Controllers\AdministrateurController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ProfesseurController;
 use App\Models\Etudiant;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,25 @@ Route::get('/Welcome', function () {
 });
 
 
+Route::group(['Middleware' => 'Admin'],function(){
+    Route::get('/Admin', function () {
+        return view('Admin.index');
+    });
+});
 
-Route::resource('/Admin', AdministrateurController::class)->middleware(['auth','checkRole:admin']);
 
-Route::resource('/Etudiant', EtudiantController::class)->middleware(['auth','checkRole:etudiant']);
+Route::group(['Middleware' => 'Etudiant'],function(){
+    Route::get('/Etudiant', function () {
+        return view('Etudiant.index');
+    });
+});
 
-Route::resource('/Professeur', ProfesseurController::class)->middleware(['auth','checkRole:professeur']);
+
+Route::group(['Middleware' => 'Professeur'],function(){
+    Route::get('/Professeur', function () {
+        return view('Professeur.index');
+    });
+});
 
 
 

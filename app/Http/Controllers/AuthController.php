@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Hash;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use PHPUnit\Framework\Attributes\IgnoreFunctionForCodeCoverage;
 
 class AuthController extends Controller
@@ -13,13 +13,13 @@ class AuthController extends Controller
     public function login(){
         if(!empty(Auth::check())){
             if(Auth::user()->user_type == 'Admin'){
-                return redirect('Admin.index');
+                return redirect('Admin/index');
             }
             else if(Auth::user()->user_type == 'Etudiant'){
-                return redirect('Etudiant.index');
+                return redirect('Etudiant/index');
             }
             else if(Auth::user()->user_type == 'Professeur'){
-                return redirect('Professeur.index');
+                return redirect('Professeur/index');
             }
         }
         return view('auth.login');
@@ -29,13 +29,13 @@ class AuthController extends Controller
         $remember = !empty($request->remember) ?true : false;
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password],$remember)) {
             if(Auth::user()->user_type == 'Admin'){
-                return redirect('Admin.index');
+                return redirect('Admin/index');
             }
             else if(Auth::user()->user_type == 'Etudiant'){
-                return redirect('Etudiant.index');
+                return redirect('Etudiant/index');
             }
             else if(Auth::user()->user_type == 'Professeur'){
-                return redirect('Professeur.index');
+                return redirect('Professeur/index');
             }
             return redirect('Admin.index');
         }else{

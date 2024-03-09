@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdministrateurController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ProfesseurController;
-use App\Models\Etudiant;
-use GuzzleHttp\Middleware;
+use App\Http\Controllers\Auth\ImportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,141 +19,78 @@ use GuzzleHttp\Middleware;
 |
 */
 
-// first page
-Route::get('/Welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::group(['Middleware' => 'Admin'],function(){
-    Route::get('/Admin', function () {
-        return view('Admin.index');
-    });
-});
-
-
-Route::group(['Middleware' => 'Etudiant'],function(){
-    Route::get('/Etudiant', function () {
-        return view('Etudiant.index');
-    });
-});
-
-
-Route::group(['Middleware' => 'Professeur'],function(){
-    Route::get('/Professeur', function () {
-        return view('Professeur.index');
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-// Route::get('/login',function () {
-//     return view('login');
-// });
-
-
-
-// Route::get('Admin/text',function () {
-//     return view('Admin.show');
-// });
-
-
-
-// // Admin:Index;Etudiant;Profe
-// Route::get('/Admin',function () {
+// Route::get('/Admin', function () {
 //     return view('Admin.index');
-// });
-
-// Route::get('Admin/Etudiant',function () {
-//     return view('Admin.Etudiant');
-// });
-
-// Route::get('Admin/Professeur',function () {
-//     return view('Admin.Professeur');
-// });
+// })->middleware(['auth', 'Adminmd:Admin']);
 
 
-// // Etudiant
-// Route::get('Etudiant/Rclamer',function () {
+// Route::get('/Etudiant', function () {
 //     return view('Etudiant.index');
-// });
-// Route::get('Etudiant/Form',function () {
-//     return view('Etudiant.create');
-// });
-
-// Route::get('Etudiant/text',function () {
-//     return view('Etudiant.show');
-// });
-
-// Route::get('Etudaint/modif',function () {
-//     return view('Etudiant.edit');
-// });
-
-// Route::get('Etud/Acc',function () {
-//     return view('Etudiant.Accepte');
-// });
-
-// Route::get('Etud/Reje',function () {
-//     return view('Etudiant.Rejeter');
-// });
+// })->middleware(['auth', 'Etudiantmd:Etudiant']);
 
 
-
-
-// // Professeur
-
-// Route::get('Prof/Rclamer',function () {
+// Route::get('/Professeur', function () {
 //     return view('Professeur.index');
+// })->middleware(['auth', 'Professeurmd:Professeur']);
+
+
+
+Route::resource('/Admin', AdministrateurController::class)->middleware(['auth','checkRole:Admin']);
+
+Route::resource('/Etudiant', EtudiantController::class)->middleware(['auth','checkRole:Etudiant']);
+
+Route::resource('/Professeur', ProfesseurController::class)->middleware(['auth','checkRole:Professeur']);
+
+
+
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+
+Route::get('/Admin', function () {
+    return view('Admin.Etudiant');
+});
+
+
+// Excel makhdaaaaaaaamch
+Route::get('Admin/Etudiant', 'ImportController@show' );
+Route::post('Admin/Etudiant', 'ImportController@import');
+
+
+
+
+
+
+
+
+
+// Route::middleware('Admin')->group(function () {
+//     Route::get('/Admin', function () {
+//         return view('Admin.index');
+//     });
 // });
-// Route::get('Prof/Form',function () {
-//     return view('Professeur.create');
+
+// Route::middleware('Etudiant')->group(function () {
+//     Route::get('/Etudiant', function () {
+//         return view('Etudiant.index');
+//     });
 // });
 
-// Route::get('Prof/text',function () {
-//     return view('Professeur.show');
-// });
-
-// Route::get('Prof/modif',function () {
-//     return view('Professeur.edit');
-// });
-
-// Route::get('Prof/Acc',function () {
-//     return view('Professeur.Accepte');
-// });
-
-// Route::get('Prof/Reje',function () {
-//     return view('Professeur.Rejeter');
+// Route::middleware('Professeur')->group(function () {
+//     Route::get('/Professeur', function () {
+//         return view('Professeur.index');
+//     });
 // });
 
 
 
 
-
-
-
-
-
-// Route::get('/logProf',function () {
-//     return view('Professeur.index');
-// });
-
-
-
-
-
-
-// -----------------------------------------------------------------------------------------------
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -162,14 +99,3 @@ Route::group(['Middleware' => 'Professeur'],function(){
 // });
 
 require __DIR__.'/auth.php';
-
-// --------------------------------------------------------------------------------------------------------
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/Prof', [ProfesseurController::class, 'index']);
-//     Route::get('/Etud', [EtudiantController::class, 'index']);
-//     Route::get('/Admin', [AdministrateurController::class, 'index']);
-// });
-
-
-

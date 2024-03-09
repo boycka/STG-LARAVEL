@@ -13,9 +13,6 @@ return new class extends Migration
     {
         Schema::create('reclamers', function (Blueprint $table) {
             $table->id();
-
-
-
             $table->string('Objet_rec');
             $table->string('Remarque');
             $table->date('Date_rec');

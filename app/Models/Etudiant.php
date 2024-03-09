@@ -11,7 +11,7 @@ class Etudiant extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $guard = 'Etudiant';
-    protected  $fillable = ['Password','Telephone','Email','Groupe','Filiere','Niveau','Prenom','Nom','N_appose'];
+    protected  $fillable = ['N_appose','Nom','Prenom','Niveau','Filiere','Groupe','Email','Telephone','Password'];
 
     protected $primaryKey = 'N_appose';
 

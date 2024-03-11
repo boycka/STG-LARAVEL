@@ -26,7 +26,7 @@
             <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
                 <div class="sm:flex items-center justify-between">
                     <div class="flex items-center">
-                        <a class="rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800 ml-4 sm:ml-8" href="{{url('Prof/Rclamer')}}">
+                        <a class="rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800 ml-4 sm:ml-8" href="{{url('/Professeur')}}">
                             <div class="py-2 px-8 text-gray-600 hover:text-indigo-700 hover:bg-indigo-100 rounded-full">
                                 <p>Recemment</p>
                             </div>
@@ -63,7 +63,7 @@
                                 </td>
                                 <td class="">
                                     <div class="flex items-center pl-5">
-                                        <p class="text-base font-medium leading-none text-gray-700 mr-2">Prof Oussama</p>
+                                        <p class="text-base font-medium leading-none text-gray-700 mr-2">Etud Oussama</p>
                                     </div>
                                 </td>
                                 <td class="pl-24">

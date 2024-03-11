@@ -63,7 +63,7 @@
                                 </td>
                                 <td class="">
                                     <div class="flex items-center pl-5">
-                                        <p class="text-base font-medium leading-none text-gray-700 mr-2">Prof Fahd</p>
+                                        <p class="text-base font-medium leading-none text-gray-700 mr-2">Etud Fahd</p>
                                     </div>
                                 </td>
                                 <td class="pl-24">

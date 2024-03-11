@@ -24,11 +24,11 @@
                 Reclamation
             </a>
 
-            <a href="{{ url('Admin/Etudiant') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ url('Admin/Etudaint') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 Etudiant
             </a>
-            <a href="{{ url('Admin/Professeur') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{  url('Admin/Professeur')  }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
                 Professeur
             </a>
@@ -73,11 +73,11 @@
                     Reclamation
                 </a>
 
-                <a href="{{ url('/Etudiant') }}"  class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="{{ url('/AdEtudiant') }}"  class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-table mr-3"></i>
                     Etudiant
                 </a>
-                <a href="{{ url('/Professeur') }}"  class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="{{ url('/AdProfesseur') }}"  class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-align-left mr-3"></i>
                     Professeur
                 </a>

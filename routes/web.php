@@ -6,7 +6,7 @@ use App\Http\Controllers\AdministrateurController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ProfesseurController;
 use App\Http\Controllers\Auth\ImportController;
-
+use App\Models\Professeur;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,22 @@ use App\Http\Controllers\Auth\ImportController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/Professeur', function () {return view('Professeur.index');});
+Route::get('/Prof/Form', function () {return view('Professeur.create');});
+Route::get('Prof/Acc', function () {return view('Professeur.Accepte');});
+Route::get('Prof/Reje', function () {return view('Professeur.Rejeter');});
+
+Route::get('/Etudaint', function () {return view('Etudiant.index');});
+
+Route::get('Admin', function () {return view('Admin.index');});
+Route::get('Admin/Etudaint', function () {return view('Admin.Etudiant');});
+Route::get('Admin/Professeur', function () {return view('Admin.Professeur');});
+
+
+
+
 
 // Route::get('/Admin', function () {
 //     return view('Admin.index');
@@ -39,11 +55,11 @@ Route::get('/', function () {
 
 
 
-Route::resource('/Admin', AdministrateurController::class)->middleware(['auth','checkRole:Admin']);
+// Route::resource('/Admin', AdministrateurController::class)->middleware(['auth','checkRole:Admin']);
 
-Route::resource('/Etudiant', EtudiantController::class)->middleware(['auth','checkRole:Etudiant']);
+// Route::resource('/Etudiant', EtudiantController::class)->middleware(['auth','checkRole:Etudiant']);
 
-Route::resource('/Professeur', ProfesseurController::class)->middleware(['auth','checkRole:Professeur']);
+// Route::resource('/Professeur', ProfesseurController::class)->middleware(['auth','checkRole:Professeur']);
 
 
 
@@ -53,9 +69,7 @@ Route::get('/login', function () {
 });
 
 
-Route::get('/Admin', function () {
-    return view('Admin.Etudiant');
-});
+
 
 
 // Excel makhdaaaaaaaamch

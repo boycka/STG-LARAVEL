@@ -134,7 +134,7 @@
 
                     <div class="accueil-component materiel-color-gray" data-url="./waliye">
                         <div class="accueil-component-icon">
-                        <a href="{{ url('/login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                        <a href="{{ url('Professeur') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
                             <img src="https://th.bing.com/th/id/OIP.pn8tQGcQMyRWt7SbamsbuwAAAA?w=349&h=250&rs=1&pid=ImgDetMain"></a>
                         </div>
                         <div class="accueil-component-title">
@@ -143,7 +143,7 @@
                     </div>
                     <div class="accueil-component materiel-color-orange" data-url="./moutamadris">
                         <div class="accueil-component-icon">
-                        <a href="{{ url('/login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                        <a href="{{ url('Etudaint') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
                             <img src="https://th.bing.com/th/id/R.83c253c55fcf6749b45c22c6d4d67937?rik=CzZI3cSSUG8jUg&pid=ImgRaw&r=0"></a>
                         </div>
                         <div class="accueil-component-title">
